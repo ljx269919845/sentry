@@ -249,12 +249,12 @@ const StreamGroup = createReactClass({
               <TooltipContent>
                 {data.lifetime && (
                   <TooltipRow>
-                    <TooltipCount>{data.lifetime.count}</TooltipCount>
+                    <TooltipCount value={data.lifetime.count} />
                     <TooltipText>{t('Since issue began')}</TooltipText>
                   </TooltipRow>
                 )}
                 <TooltipRow>
-                  <TooltipCount>{data.count}</TooltipCount>
+                  <TooltipCount value={data.count} />
                   <TooltipText>{t(`Within ${summary}`)}</TooltipText>
                   {hasDiscoverQuery && (
                     <StyledIconTelescope
@@ -265,7 +265,7 @@ const StreamGroup = createReactClass({
                 </TooltipRow>
                 {data.filtered && (
                   <TooltipRow>
-                    <TooltipCount>{data.filtered.count}</TooltipCount>
+                    <TooltipCount value={data.filtered.count} />
                     <TooltipText>{t('With filters applied')}</TooltipText>
                     {hasDiscoverQuery && (
                       <StyledIconTelescope
@@ -293,12 +293,12 @@ const StreamGroup = createReactClass({
               <TooltipContent>
                 {data.lifetime && (
                   <TooltipRow>
-                    <TooltipCount>{data.lifetime.userCount}</TooltipCount>
+                    <TooltipCount value={data.lifetime.userCount} />
                     <TooltipText>{t('Since issue began')}</TooltipText>
                   </TooltipRow>
                 )}
                 <TooltipRow>
-                  <TooltipCount>{data.userCount}</TooltipCount>
+                  <TooltipCount value={data.userCount} />
                   <TooltipText>{t(`Within ${summary}`)}</TooltipText>
                   {hasDiscoverQuery && (
                     <StyledIconTelescope
@@ -309,7 +309,7 @@ const StreamGroup = createReactClass({
                 </TooltipRow>
                 {data.filtered && (
                   <TooltipRow>
-                    <TooltipCount>{data.filtered.userCount}</TooltipCount>
+                    <TooltipCount value={data.filtered.userCount} />
                     <TooltipText>{t('With filters applied')}</TooltipText>
                     {hasDiscoverQuery && (
                       <StyledIconTelescope
@@ -376,18 +376,22 @@ const TooltipContent = styled(({children, ...p}) => (
   margin: 0;
 `;
 
-const TooltipRow = styled('tr')`
-  padding: ${space(0.5)} ${space(1)};
-  display: block;
+const TooltipRow = styled('tr')``;
+
+const TooltipCount = styled(({value, ...p}) => (
+  <td {...p}>
+    <Count value={value} />
+  </td>
+))`
+  text-align: right;
+  font-weight: bold;
+  padding: ${space(0.5)};
 `;
 
 const TooltipText = styled('td')`
-  padding-left: ${space(1.5)};
   font-weight: normal;
-`;
-
-const TooltipCount = styled('td')`
-  font-weight: bold;
+  text-align: left;
+  padding: ${space(0.5)} ${space(1)};
 `;
 
 const StyledIconTelescope = styled(({to, ...p}) => (
@@ -397,7 +401,7 @@ const StyledIconTelescope = styled(({to, ...p}) => (
     </Link>
   </td>
 ))`
-  padding-left: ${space(1.5)};
+  padding: ${space(0.5)};
 `;
 
 export default withGlobalSelection(withOrganization(StreamGroup));
