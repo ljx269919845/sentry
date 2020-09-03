@@ -247,10 +247,16 @@ const StreamGroup = createReactClass({
             isHoverable
             title={
               <TooltipContent>
-                {data.lifetime && (
+                {data.filtered && (
                   <TooltipRow>
-                    <TooltipCount value={data.lifetime.count} />
-                    <TooltipText>{t('Since issue began')}</TooltipText>
+                    <TooltipCount value={data.filtered.count} />
+                    <TooltipText>{t('With filters applied')}</TooltipText>
+                    {hasDiscoverQuery && (
+                      <StyledIconTelescope
+                        to={this.getDiscoverUrl(true)}
+                        color={theme.blue300}
+                      />
+                    )}
                   </TooltipRow>
                 )}
                 <TooltipRow>
@@ -263,16 +269,10 @@ const StreamGroup = createReactClass({
                     />
                   )}
                 </TooltipRow>
-                {data.filtered && (
+                {data.lifetime && (
                   <TooltipRow>
-                    <TooltipCount value={data.filtered.count} />
-                    <TooltipText>{t('With filters applied')}</TooltipText>
-                    {hasDiscoverQuery && (
-                      <StyledIconTelescope
-                        to={this.getDiscoverUrl(true)}
-                        color={theme.blue300}
-                      />
-                    )}
+                    <TooltipCount value={data.lifetime.count} />
+                    <TooltipText>{t('Since issue began')}</TooltipText>
                   </TooltipRow>
                 )}
               </TooltipContent>
@@ -291,10 +291,16 @@ const StreamGroup = createReactClass({
             isHoverable
             title={
               <TooltipContent>
-                {data.lifetime && (
+                {data.filtered && (
                   <TooltipRow>
-                    <TooltipCount value={data.lifetime.userCount} />
-                    <TooltipText>{t('Since issue began')}</TooltipText>
+                    <TooltipCount value={data.filtered.userCount} />
+                    <TooltipText>{t('With filters applied')}</TooltipText>
+                    {hasDiscoverQuery && (
+                      <StyledIconTelescope
+                        to={this.getDiscoverUrl(true)}
+                        color={theme.blue300}
+                      />
+                    )}
                   </TooltipRow>
                 )}
                 <TooltipRow>
@@ -307,16 +313,10 @@ const StreamGroup = createReactClass({
                     />
                   )}
                 </TooltipRow>
-                {data.filtered && (
+                {data.lifetime && (
                   <TooltipRow>
-                    <TooltipCount value={data.filtered.userCount} />
-                    <TooltipText>{t('With filters applied')}</TooltipText>
-                    {hasDiscoverQuery && (
-                      <StyledIconTelescope
-                        to={this.getDiscoverUrl(true)}
-                        color={theme.blue300}
-                      />
-                    )}
+                    <TooltipCount value={data.lifetime.userCount} />
+                    <TooltipText>{t('Since issue began')}</TooltipText>
                   </TooltipRow>
                 )}
               </TooltipContent>
