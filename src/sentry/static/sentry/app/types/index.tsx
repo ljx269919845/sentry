@@ -209,6 +209,7 @@ export type Team = {
   id: string;
   slug: string;
   isMember: boolean;
+  isPending: boolean;
   avatar: Avatar;
 };
 
@@ -1407,4 +1408,11 @@ export type Frame = {
   origAbsPath?: string;
   mapUrl?: string;
   instructionAddr?: string;
+};
+
+export type FilesByRepository = {
+  [repoName: string]: {
+    authors?: {[email: string]: CommitAuthor};
+    types?: Set<string>;
+  };
 };
