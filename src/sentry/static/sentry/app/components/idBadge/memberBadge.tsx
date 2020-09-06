@@ -11,14 +11,14 @@ import space from 'app/styles/space';
 import SentryTypes from 'app/sentryTypes';
 
 type Props = {
-  avatarSize: UserAvatar['props']['size'];
   member: Member;
-  className?: string;
-  displayName?: string;
+  avatarSize?: UserAvatar['props']['size'];
+  displayName?: React.ReactNode;
   displayEmail?: string;
   orgId?: string;
   useLink?: boolean;
   hideEmail?: boolean;
+  className?: string;
 };
 
 function getUser(member: Member): AvatarUser {
@@ -41,7 +41,7 @@ const MemberBadge = ({
   displayEmail,
   member,
   orgId,
-  avatarSize,
+  avatarSize = 24,
   useLink = true,
   hideEmail = false,
 }: Props) => {

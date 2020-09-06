@@ -6,7 +6,7 @@ import OrganizationAvatar from 'app/components/avatar/organizationAvatar';
 import ProjectAvatar from 'app/components/avatar/projectAvatar';
 import TeamAvatar from 'app/components/avatar/teamAvatar';
 import UserAvatar from 'app/components/avatar/userAvatar';
-import {Team, OrganizationSummary, AvatarProject} from 'app/types';
+import {Team, OrganizationSummary, AvatarProject, Member} from 'app/types';
 
 const BasicModelShape = PropTypes.shape({slug: PropTypes.string});
 
@@ -14,6 +14,7 @@ type Props = {
   team?: Team;
   organization?: OrganizationSummary;
   project?: AvatarProject;
+  member?: Member;
 } & UserAvatar['props'];
 
 class Avatar extends React.Component<Props> {

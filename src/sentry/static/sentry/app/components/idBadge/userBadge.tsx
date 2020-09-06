@@ -9,19 +9,19 @@ import space from 'app/styles/space';
 import SentryTypes from 'app/sentryTypes';
 
 type Props = {
-  avatarSize: UserAvatar['props']['size'];
-  className?: string;
-  displayName?: string;
+  avatarSize?: UserAvatar['props']['size'];
+  displayName?: React.ReactNode;
   displayEmail?: string;
   user?: AvatarUser;
   hideEmail?: boolean;
+  className?: string;
 };
 
 const UserBadge = ({
   className,
   displayName,
   displayEmail,
-  avatarSize,
+  avatarSize = 24,
   hideEmail = false,
   user,
 }: Props) => {
